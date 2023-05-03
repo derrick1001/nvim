@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/playground')
     use {'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.12.0', opt = true}
     use('theprimeagen/harpoon')
+    use('ThePrimeagen/vim-be-good')
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
     use "rafamadriz/friendly-snippets"
