@@ -1,3 +1,3 @@
 require("lshadows.remap")
-require("lshadows.packer")
+-- require("lshadows.packer")
 require("lshadows.set")
