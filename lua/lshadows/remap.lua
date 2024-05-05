@@ -25,7 +25,7 @@ vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-vim.keymap.set("n", "<F5>", "<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<CR><cmd>term python3.8 %<CR>i") -- run current python file
+vim.keymap.set("n", "<F5>", "<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<CR><cmd>term python3 %<CR>i") -- run current python file
 vim.keymap.set("n", "<leader>t", "<cmd>vsp<CR><cmd>term<CR>i") -- quickly open up a terminal
 vim.keymap.set("n", "<leader>C", "<cmd>set colorcolumn=\"\"<CR>") -- remove colorcolumn when not needed
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR>") -- cd to directory of current file
