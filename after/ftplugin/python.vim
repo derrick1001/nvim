@@ -1,2 +1,2 @@
 set colorcolumn=80
-colorscheme monokai_ristretto
+colorscheme gruvbox-baby
