@@ -1,1 +1,1 @@
-colorscheme tokyonight
+colorscheme rose-pine

@@ -1,1 +1,1 @@
-colorscheme afterglow
+colorscheme rose-pine

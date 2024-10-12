@@ -1,1 +1,1 @@
-colorscheme monokai
+colorscheme monokai-ristretto
