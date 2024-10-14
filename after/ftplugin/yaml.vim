@@ -1,1 +1,1 @@
-colorscheme monokai-ristretto
+colorscheme rose-pine-moon

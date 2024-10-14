@@ -69,7 +69,6 @@ Kickstart Guide:
   I have left several `:help X` comments throughout the init.lua
     These are hints about where to find more information about the relevant settings,
     plugins or Neovim features used in Kickstart.
-
    NOTE: Look for lines like this
 
     Throughout the file. These are for you, the reader, to help you understand what is happening.
@@ -85,7 +84,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Set dark background
---vim.o.background = "dark"
+vim.o.background = "dark"
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -773,6 +772,7 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
+		"rebelot/kanagawa.nvim",
 		"luisiacc/gruvbox-baby",
 		{ "neanias/everforest-nvim" },
 		{ "rose-pine/neovim", name = "rose-pine" },
@@ -783,11 +783,6 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
-			vim.cmd.colorscheme("gruvbox")
-			vim.cmd.colorscheme("gruvbox-baby")
-			vim.cmd.colorscheme("nightfall")
-			vim.cmd.colorscheme("monokai_ristretto")
 			vim.cmd.colorscheme("rose-pine")
 			-- You can configure highlights by doing something like:
 			vim.cmd.hi("Comment gui=none")
@@ -800,7 +795,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "auto",
+				theme = "horizon",
 				component_separators = "|",
 				section_separators = "",
 			},

@@ -1,2 +1,2 @@
 set colorcolumn=80
-colorscheme gruvbox-baby
+colorscheme rose-pine
