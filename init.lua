@@ -84,7 +84,7 @@ P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
 -- Set dark background
-vim.o.background = "dark"
+-- vim.o.background = "dark"
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -759,25 +759,32 @@ require("lazy").setup({
 			})
 		end,
 	},
+	{
+		--Set lualine as statusline
+		"nvim-lualine/lualine.nvim",
+		--See `:help lualine.txt`
+		config = true,
+		opts = {
+			options = {
+				icons_enabled = false,
+				theme = "rose-pine",
+				component_separators = "|",
+				section_separators = "",
+			},
+		},
+	},
 
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is.
 		--
 		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		{
-			"2giosangmitom/nightfall.nvim",
-			lazy = true,
-			priority = 1000,
-			opts = {},
-		},
 		"rebelot/kanagawa.nvim",
 		"luisiacc/gruvbox-baby",
 		{ "neanias/everforest-nvim" },
 		{ "rose-pine/neovim", name = "rose-pine" },
 		"tanvirtin/monokai.nvim",
 		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
 		init = function()
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
@@ -788,13 +795,14 @@ require("lazy").setup({
 		end,
 	},
 	{
-		-- Set lualine as statusline
+		--Set lualine as statusline
 		"nvim-lualine/lualine.nvim",
-		-- See `:help lualine.txt`
+		--See `:help lualine.txt`
+		config = true,
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "horizon",
+				theme = "rose-pine",
 				component_separators = "|",
 				section_separators = "",
 			},
@@ -817,6 +825,7 @@ require("lazy").setup({
 			--  - yinq - [Y]ank [I]nside [N]ext [']quote
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
+			require("mini.git").setup()
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
 			--
@@ -829,17 +838,17 @@ require("lazy").setup({
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
-			local statusline = require("mini.statusline")
+			--local statusline = require("mini.statusline")
 			-- set use_icons to true if you have a Nerd Font
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
+			--statusline.setup({ use_icons = vim.g.have_nerd_font })
 
 			-- You can configure sections in the statusline by overriding their
 			-- default behavior. For example, here we set the section for
 			-- cursor location to LINE:COLUMN
-			---@diagnostic disable-next-line: duplicate-set-field
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
+			-----@diagnostic disable-next-line: duplicate-set-field
+			--statusline.section_location = function()
+			--return "%2l:%-2v"
+			--end
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
