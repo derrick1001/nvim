@@ -234,7 +234,11 @@ require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"mbbill/undotree",
-	"ThePrimeagen/harpoon",
+	{
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
 	-- keys can be used to configure plugin behavior/loading/etc.
@@ -759,20 +763,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-	{
-		--Set lualine as statusline
-		"nvim-lualine/lualine.nvim",
-		--See `:help lualine.txt`
-		config = true,
-		opts = {
-			options = {
-				icons_enabled = false,
-				theme = "rose-pine",
-				component_separators = "|",
-				section_separators = "",
-			},
-		},
-	},
 
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
@@ -802,7 +792,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = false,
-				theme = "rose-pine",
+				theme = "horizon",
 				component_separators = "|",
 				section_separators = "",
 			},

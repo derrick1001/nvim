@@ -27,7 +27,7 @@ vim.keymap.set("n", "<F5>", "<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<C
 vim.keymap.set("n", "<leader>t", "<cmd>vsp<CR><cmd>term<CR>i") -- quickly open up a terminal
 vim.keymap.set("n", "<leader>C", '<cmd>set colorcolumn=""<CR>') -- remove colorcolumn when not needed
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR>") -- cd to directory of current file
-vim.keymap.set("n", "<leader>cc", "<cmd>colorscheme rose-pine<CR>") -- set default colorscheme
+vim.keymap.set("n", "<leader>cc", "<cmd>colorscheme rose-pine-main<CR>") -- set default colorscheme
 
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
