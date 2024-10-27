@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>PS", vim.cmd.PackerSync)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -20,10 +18,15 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
-vim.keymap.set("n", "Q", "<nop>")
+-- Quickly get out of split, ie: horizontal split with python test
+vim.keymap.set("n", "Q", "<cmd>q<CR>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux new tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
-vim.keymap.set("n", "<F5>", "<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<CR><cmd>term python3 %<CR>i") -- run current python file
+vim.keymap.set(
+	"n",
+	"<F5>",
+	"<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<CR><cmd>set nonumber<CR><cmd>set norelativenumber<CR><cmd>term python3 %<CR>"
+) -- run current python file
 vim.keymap.set("n", "<leader>t", "<cmd>vsp<CR><cmd>term<CR>i") -- quickly open up a terminal
 vim.keymap.set("n", "<leader>C", '<cmd>set colorcolumn=""<CR>') -- remove colorcolumn when not needed
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR>") -- cd to directory of current file
