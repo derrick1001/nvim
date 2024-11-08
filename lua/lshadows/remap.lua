@@ -32,10 +32,10 @@ vim.keymap.set("n", "<leader>C", '<cmd>set colorcolumn=""<CR>') -- remove colorc
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR>") -- cd to directory of current file
 vim.keymap.set("n", "<leader>cc", "<cmd>colorscheme rose-pine-main<CR>") -- set default colorscheme
 
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+-- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+-- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+-- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
+-- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r>/\>/<C-r>//gI<Left><Left><Left>]])
 
