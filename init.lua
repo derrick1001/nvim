@@ -128,7 +128,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "no"
+vim.opt.signcolumn = "yes"
 
 -- Decrease update time
 vim.opt.updatetime = 250
@@ -168,6 +168,10 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = false,
+})
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -595,7 +599,7 @@ require("lazy").setup({
 								callSnippet = "Replace",
 							},
 							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
+							diagnostics = { disable = { "missing-fields" } },
 						},
 					},
 				},
@@ -614,6 +618,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"ruff", -- Python tool
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -660,7 +665,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				-- Conform can also run multiple formatters sequentially
-				python = { "isort", "black" },
+				python = { "ruff" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
