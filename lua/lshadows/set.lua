@@ -20,6 +20,7 @@ vim.g.netrw_liststyle = 0
 vim.g.netrw_bufsettings = "noma nomod nonu nobl nowrap ro rnu"
 
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 vim.opt.wrap = false
 

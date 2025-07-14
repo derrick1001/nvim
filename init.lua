@@ -588,6 +588,22 @@ require("lazy").setup({
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
+				pylsp = {},
+				-- 	settings = {
+				-- 		pylsp = {
+				-- 			plugins = {
+				-- 				pyflakes = { enabled = false },
+				-- 				pycodestyle = { enabled = false },
+				-- 				autopep8 = { enabled = false },
+				-- 				yapf = { enabled = false },
+				-- 				mcabe = { enabled = false },
+				-- 				pylsp_mypy = { enabled = false },
+				-- 				pylsp_black = { enabled = false },
+				-- 				pylsp_isort = { enabled = false },
+				-- 			},
+				-- 		},
+				-- 	},
+				-- },
 
 				lua_ls = {
 					-- cmd = {...},
@@ -618,7 +634,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
-				"ruff", -- Python tool
+				"shfmt", -- Used to format bash code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -662,10 +678,13 @@ require("lazy").setup({
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 				}
 			end,
+			-- Conform can also run multiple formatters sequentially
 			formatters_by_ft = {
 				lua = { "stylua" },
-				-- Conform can also run multiple formatters sequentially
-				python = { "ruff" },
+				python = { "ruff_format" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
@@ -730,9 +749,9 @@ require("lazy").setup({
 				-- No, but seriously. Please read `:help ins-completion`, it is really good!
 				mapping = cmp.mapping.preset.insert({
 					-- Select the [n]ext item
-					["<Tab>"] = cmp.mapping.select_next_item(),
+					-- ["<Tab>"] = cmp.mapping.select_next_item(),
 					-- Select the [p]revious item
-					["<S-Tab>"] = cmp.mapping.select_prev_item(),
+					-- ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
 					-- Scroll the documentation window [b]ack / [f]orward
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -869,7 +888,18 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "python", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+			ensure_installed = {
+				"bash",
+				"python",
+				"yaml",
+				"html",
+				"lua",
+				"luadoc",
+				"markdown",
+				"vim",
+				"vimdoc",
+				"json",
+			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
@@ -907,9 +937,9 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug',
-	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
+	require("kickstart.plugins.debug"),
+	-- require("kickstart.plugins.indent_line"),
+	-- require("kickstart.plugins.lint"),
 	-- require 'kickstart.plugins.autopairs',
 	-- require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
