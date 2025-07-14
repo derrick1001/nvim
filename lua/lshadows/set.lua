@@ -9,7 +9,6 @@ vim.opt.showmode = false -- hide mode in statusline
 vim.opt.tabstop = 4 -- stops tab at 4 spaces
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.expandtab = true -- turns tabs into spaces
 vim.opt.path = "**"
 vim.opt.wildmenu = true
 

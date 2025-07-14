@@ -27,7 +27,6 @@ vim.keymap.set(
 	"<F5>",
 	"<cmd>w<CR><cmd>horizontal split<CR><cmd>resize 12<CR><cmd>set nonumber<CR><cmd>set norelativenumber<CR><cmd>term python3 %<CR>"
 ) -- run current python file
-vim.keymap.set("n", "<leader>t", "<cmd>vsp<CR><cmd>term<CR>i") -- quickly open up a terminal
 vim.keymap.set("n", "<leader>C", '<cmd>set colorcolumn=""<CR>') -- remove colorcolumn when not needed
 vim.keymap.set("n", "<leader>cd", "<cmd>cd %:h<CR>") -- cd to directory of current file
 vim.keymap.set("n", "<leader>cc", "<cmd>colorscheme rose-pine-main<CR>") -- set default colorscheme
