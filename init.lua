@@ -588,22 +588,22 @@ require("lazy").setup({
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
-				pylsp = {},
-				-- 	settings = {
-				-- 		pylsp = {
-				-- 			plugins = {
-				-- 				pyflakes = { enabled = false },
-				-- 				pycodestyle = { enabled = false },
-				-- 				autopep8 = { enabled = false },
-				-- 				yapf = { enabled = false },
-				-- 				mcabe = { enabled = false },
-				-- 				pylsp_mypy = { enabled = false },
-				-- 				pylsp_black = { enabled = false },
-				-- 				pylsp_isort = { enabled = false },
-				-- 			},
-				-- 		},
-				-- 	},
-				-- },
+				pylsp = {
+					settings = {
+						pylsp = {
+							plugins = {
+								pyflakes = { enabled = false },
+								pycodestyle = { enabled = false },
+								autopep8 = { enabled = false },
+								yapf = { enabled = false },
+								mcabe = { enabled = false },
+								pylsp_mypy = { enabled = false },
+								pylsp_black = { enabled = false },
+								pylsp_isort = { enabled = false },
+							},
+						},
+					},
+				},
 
 				lua_ls = {
 					-- cmd = {...},
@@ -681,7 +681,7 @@ require("lazy").setup({
 			-- Conform can also run multiple formatters sequentially
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "ruff_format" },
+				python = { "ruff_fix", "ruff_format" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
@@ -887,6 +887,7 @@ require("lazy").setup({
 	{ -- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		branch = "master",
 		opts = {
 			ensure_installed = {
 				"bash",
@@ -938,7 +939,7 @@ require("lazy").setup({
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
 	require("kickstart.plugins.debug"),
-	-- require("kickstart.plugins.indent_line"),
+	require("kickstart.plugins.indent_line"),
 	-- require("kickstart.plugins.lint"),
 	-- require 'kickstart.plugins.autopairs',
 	-- require("kickstart.plugins.neo-tree"),
