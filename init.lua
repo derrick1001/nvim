@@ -680,6 +680,8 @@ require("lazy").setup({
 			end,
 			-- Conform can also run multiple formatters sequentially
 			formatters_by_ft = {
+				bash = { "shfmt" },
+				sh = { "shfmt" },
 				lua = { "stylua" },
 				python = { "ruff_fix", "ruff_format" },
 				json = { "prettier" },
@@ -938,7 +940,7 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the Kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	require("kickstart.plugins.debug"),
+	-- require("kickstart.plugins.debug"),
 	require("kickstart.plugins.indent_line"),
 	-- require("kickstart.plugins.lint"),
 	-- require 'kickstart.plugins.autopairs',
