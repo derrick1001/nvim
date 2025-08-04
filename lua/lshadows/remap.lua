@@ -41,6 +41,6 @@ vim.keymap.set("n", "<leader>cc", "<cmd>colorscheme rose-pine-main<CR>") -- set 
 -- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 -- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
-vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r>/\>/<C-r>//gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>S", [[:%s/<C-r>//<C-r>//gI<Left><Left><Left>]])
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod u+x %<CR>", { silent = true })
